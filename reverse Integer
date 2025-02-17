@@ -1,0 +1,22 @@
+//Leetcode medium
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+
+    //converting integer to string, reverse it and then convert it back to array
+    let x_Arr = x.toString().split('').reverse().join('');
+
+    //removing leading zero if there is
+    if(x_Arr[0] === 0) x_Arr.splice(0, 1)
+
+    const intVal = parseInt(x_Arr)
+
+    //checking value doesn't exceeds 32-bit integer range
+    if(intVal > 0x7FFFFFFF) return 0
+    
+    //adding the initial sign of given int
+    return intVal * Math.sign(x)
+};
